@@ -86,7 +86,7 @@ public class AccountManager implements MenuChoice {
 		System.out.print("고객이름:");
 		String name = sc2.next();
 		System.out.print("잔고:");
-		double balance = sc2.nextDouble();
+		int balance = sc2.nextInt();
 		System.out.print("기본이자%(정수형태로입력):");
 		int interest = sc2.nextInt();
 
@@ -106,22 +106,22 @@ public class AccountManager implements MenuChoice {
 			ac2 = new HighCreditAccount(account, name, balance, interest, credit);
 		}
 
-		int opt = 0;
+		int opt = 1;
 		Iterator<Account> itr = set.iterator();
 		while (itr.hasNext()) {
 			Account data = (Account) itr.next();
 			if (data.accountNumber.equals(account)) {
 				System.out.println("동일한계좌입력됨,덮어쓰기하시겠습니까?(예:0,아니오:1)");
 				opt = sc2.nextInt();
-			}
-			if (opt == 0) {
-				set.remove(data);
-				if (selection == 1)
-					set.add(ac);
-				else if (selection == 2)
-					set.add(ac2);
-			} else if (opt == 1) {
-				showMenu();
+				if (opt == 0) {
+					set.remove(data);
+					if (selection == 1)
+						set.add(ac);
+					else if (selection == 2)
+						set.add(ac2);
+				} else if (opt == 1) {
+					showMenu();
+				}
 			}
 		}
 
@@ -292,7 +292,7 @@ public class AccountManager implements MenuChoice {
 			}
 			in.close();
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("파일없음");
 		}
 	}// end of PullData
 }

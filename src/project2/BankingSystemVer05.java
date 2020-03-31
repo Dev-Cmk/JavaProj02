@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 import project2.ver05.MenuChoice;
 import project2.ver05.IConnectImpl;
-
+import project2.game3by3;
 public class BankingSystemVer05 extends IConnectImpl implements MenuChoice {
 	
 	public BankingSystemVer05() {
@@ -22,7 +22,8 @@ public class BankingSystemVer05 extends IConnectImpl implements MenuChoice {
 			System.out.println("2.입   금");
 			System.out.println("3.출   금");
 			System.out.println("4.계좌정보출력");
-			System.out.println("5.프로그램종료");
+			System.out.println("5.--3X3게임 ");
+			System.out.println("6.프로그램종료");
 			
 			System.out.print("선택:");
 			Scanner sc = new Scanner(System.in);

@@ -78,7 +78,10 @@ public class game3by3 {
 	}
 
 	public static void gamestart() {
-		shuffle(5);
+		Scanner sh = new Scanner(System.in);
+		System.out.print("셔플횟수입력:");
+		int shuffle_num = sh.nextInt();
+		shuffle(shuffle_num);
 		boolean res = true;
 		while (res) {
 			print_puzzle(puzzle);

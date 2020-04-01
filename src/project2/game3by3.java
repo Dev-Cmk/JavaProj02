@@ -10,9 +10,7 @@ public class game3by3 {
 	static int col = 2;
 
 	static void shuffle(int count) {
-
 		int opt;
-
 		while (count > 0) {
 			Random r = new Random();
 			opt = r.nextInt(3);
@@ -54,10 +52,17 @@ public class game3by3 {
 			{
 				if (puzzle[c][r] > 0)// 참이면(0이 아니면)
 				{
-					System.out.printf("%3d", puzzle[c][r]);// 퍼즐의 수를 출력
+					if ((c == 0 && r == 0) || (c == 1 && r == 0) || (c == 2 && r == 0)) {
+						System.out.printf("%d", puzzle[c][r]);
+					} else {
+						System.out.printf("%3d", puzzle[c][r]);// 퍼즐의 수를 출력
+					}
 				} else// 거짓(0)이면
 				{
-					System.out.printf("  x");// 공백 출력
+					if ((c == 0 && r == 0) || (c == 1 && r == 0) || (c == 2 && r == 0)) {
+						System.out.printf("x");// 공백 출력
+					} else
+						System.out.printf("  x");// 공백 출력
 				}
 
 			}
@@ -84,8 +89,12 @@ public class game3by3 {
 		shuffle(shuffle_num);
 		boolean res = true;
 		while (res) {
+			System.out.println("=======");
 			print_puzzle(puzzle);
-			System.out.printf(">> 방향키 선택 \n");
+			System.out.println("=======");
+			System.out.println("[ 이동 ] a:Left d:Right w:Up s:Down");
+			System.out.println("[ 종료 ] x:Exit");
+			System.out.printf(">> 방향키 선택해주세요 :");
 			Scanner sc = new Scanner(System.in);
 			String input = sc.nextLine();
 			try {
@@ -96,7 +105,10 @@ public class game3by3 {
 						puzzle[col - 1][row] = 0;
 						col--;
 					} catch (Exception e) {
-						System.out.println("이동불가..!!");
+						System.out.println("xxxxxxxxxxxxxxx");
+						System.out.println("xxxxx이동불가xxxxx");
+						System.out.println("xxxxxxxxxxxxxxx");
+						continue;
 					}
 					break;
 				case "W":
@@ -105,7 +117,10 @@ public class game3by3 {
 						puzzle[col + 1][row] = 0;
 						col++;
 					} catch (Exception e) {
-						System.out.println("이동불가..!!");
+						System.out.println("xxxxxxxxxxxxxxx");
+						System.out.println("xxxxx이동불가xxxxx");
+						System.out.println("xxxxxxxxxxxxxxx");
+						continue;
 					}
 					break;
 				case "A":
@@ -114,7 +129,10 @@ public class game3by3 {
 						puzzle[col][row + 1] = 0;
 						row++;
 					} catch (Exception e) {
-						System.out.println("이동불가..!!");
+						System.out.println("xxxxxxxxxxxxxxx");
+						System.out.println("xxxxx이동불가xxxxx");
+						System.out.println("xxxxxxxxxxxxxxx");
+						continue;
 					}
 					break;
 				case "D":
@@ -123,7 +141,10 @@ public class game3by3 {
 						puzzle[col][row - 1] = 0;
 						row--;
 					} catch (Exception e) {
-						System.out.println("이동불가..!!");
+						System.out.println("xxxxxxxxxxxxxxx");
+						System.out.println("xxxxx이동불가xxxxx");
+						System.out.println("xxxxxxxxxxxxxxx");
+						continue;
 					}
 					break;
 				case "X":
@@ -131,14 +152,14 @@ public class game3by3 {
 				}// end of try
 				res = answer(puzzle);
 				if (res == false) {
-					System.out.println("정답입니다..!!");
+					System.out.println("==^^정답입니다^^==");
+					print_puzzle(puzzle);
 					System.out.println("재시작하시겠습니까?(y:재시작,나머지:종료)");
 					Scanner sc2 = new Scanner(System.in);
 					String sc3 = sc2.next();
 					if (sc3.equals("y")) {
 						gamestart();
 					} else {
-
 					}
 				} // end of if
 			} catch (Exception e) {

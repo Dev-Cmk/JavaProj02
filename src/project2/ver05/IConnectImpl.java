@@ -20,7 +20,6 @@ public class IConnectImpl implements IConnect {
 	}
 
 	public IConnectImpl(String user, String pass) {
-		System.out.println("IConnectImpl 인자생성자 호출");
 		try {
 			// 드라이버 로드
 			Class.forName(ORACLE_DRIVER);
@@ -32,6 +31,7 @@ public class IConnectImpl implements IConnect {
 		} catch (Exception e) {
 			System.out.println("알수 없는 예외발생");
 		}
+		System.out.println("오라클연결성공..!!");
 	}
 
 	@Override

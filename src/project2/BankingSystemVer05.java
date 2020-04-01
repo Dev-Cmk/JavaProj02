@@ -58,8 +58,8 @@ public class BankingSystemVer05 extends IConnectImpl implements MenuChoice {
 			String query = "create table banking_tb( " + " account varchar2(100) primary key, "
 					+ " name varchar2(100), " + " balance int" + ")";
 
-			psmt = con.prepareStatement(query);
-			psmt.executeUpdate();
+			stmt = con.prepareStatement(query);
+			stmt.executeUpdate(query);
 		} catch (SQLException e) {
 			System.out.println("쿼리오류발생");
 			e.printStackTrace();
@@ -73,8 +73,8 @@ public class BankingSystemVer05 extends IConnectImpl implements MenuChoice {
 			String query = "create sequence seq_banking " + " increment by 1 " + " start with 1 " + " nomaxvalue "
 					+ " minvalue 1 " + " nocycle " + " nocache ";
 
-			psmt = con.prepareStatement(query);
-			psmt.executeUpdate();
+			stmt = con.prepareStatement(query);
+			stmt.executeUpdate(query);
 		} catch (SQLException e) {
 			System.out.println("쿼리오류발생");
 			e.printStackTrace();

@@ -13,7 +13,7 @@ public class game3by3 {
 		int opt;
 		while (count > 0) {
 			Random r = new Random();
-			opt = r.nextInt(3);
+			opt = r.nextInt(4);
 			try {
 				switch (opt) {
 				case 0:

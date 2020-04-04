@@ -70,7 +70,8 @@ public class BankingSystemVer05 extends IConnectImpl implements MenuChoice {
 	public void makeSequence() {
 		try {
 			System.out.println("시퀀스 생성");
-			String query = "create sequence seq_banking " + " increment by 1 " + " start with 1 " + " nomaxvalue "
+			String query = "create sequence seq_banking " + " increment by 1 " 
+					+ " start with 1 " + " nomaxvalue "
 					+ " minvalue 1 " + " nocycle " + " nocache ";
 
 			stmt = con.prepareStatement(query);

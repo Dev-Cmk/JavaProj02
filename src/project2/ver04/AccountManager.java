@@ -229,12 +229,12 @@ public class AccountManager implements MenuChoice {
 			Iterator<Account> itr3 = set.iterator();
 			while (itr3.hasNext()) {
 				data3 = (Account) itr3.next();
+				if (data3 != null && data3.accountNumber.equals(actNum))
+					data3.allMoney -= outputMoney;
 				if (data3.allMoney < outputMoney) {
 					Exception err = new Exception();
 					throw err;
 				}
-				if (data3 != null && data3.accountNumber.equals(actNum))
-					data3.allMoney -= outputMoney;
 			} // end of while
 		} catch (Exception e) {
 			System.out.println("잔고보다 많은 금액 출금 불가능..!!");

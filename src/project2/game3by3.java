@@ -60,7 +60,7 @@ public class game3by3 {
 				} else// 거짓(0)이면
 				{
 					if ((c == 0 && r == 0) || (c == 1 && r == 0) || (c == 2 && r == 0)) {
-						System.out.printf("x");// 공백 출력
+						System.out.printf("x");// 공백 미출력
 					} else
 						System.out.printf("  x");// 공백 출력
 				}
@@ -99,6 +99,7 @@ public class game3by3 {
 			String input = sc.nextLine();
 			try {
 				switch (input.toUpperCase()) {
+				//위쪽이동
 				case "S":
 					try {
 						puzzle[col][row] = puzzle[col - 1][row];
@@ -111,6 +112,7 @@ public class game3by3 {
 						continue;
 					}
 					break;
+				//아래쪽이동
 				case "W":
 					try {
 						puzzle[col][row] = puzzle[col + 1][row];
@@ -123,6 +125,7 @@ public class game3by3 {
 						continue;
 					}
 					break;
+				//오른쪽이동
 				case "A":
 					try {
 						puzzle[col][row] = puzzle[col][row + 1];
@@ -135,6 +138,7 @@ public class game3by3 {
 						continue;
 					}
 					break;
+				//왼쪽이동
 				case "D":
 					try {
 						puzzle[col][row] = puzzle[col][row - 1];
@@ -147,6 +151,7 @@ public class game3by3 {
 						continue;
 					}
 					break;
+				//종료
 				case "X":
 					return;
 				}// end of try

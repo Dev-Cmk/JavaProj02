@@ -43,7 +43,7 @@ public class game3by3 {
 			count--;
 		}
 	}
-
+//
 	static void print_puzzle(int puzzle[][]) {
 		int r, c;
 		for (c = 0; c < 3; c++)// 열 반복

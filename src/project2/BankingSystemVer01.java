@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import project2.ver01.Account;
 import project2.ver01.MenuChoice;
-
+///////////
 public class BankingSystemVer01 implements MenuChoice {
 	private Account[] data = new Account[50];;
 	int numOfaccount = 0;
